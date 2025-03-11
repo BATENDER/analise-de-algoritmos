@@ -1,20 +1,15 @@
 #include <stdio.h>
 
-void menu();
-void itemZeFrita();
-void itemZeRustico();
-void itemZeDoce();
-void itemZeChips();
-void itemZeEspecial();
+void menu(char item);
+// void itemZeFrita();
+// void itemZeRustico();
+// void itemZeDoce();
+// void itemZeChips();
+// void itemZeEspecial();
 
 int main() {
-    menu();
-    
-    return 0;
-}
-
-void menu() {
     char item;
+
     printf("menu: \n\n
     
     \nA - Zé Frita
@@ -22,100 +17,103 @@ void menu() {
     \nC - Zé Frita Doce
     \nD - Zé Chips
     \nE - Zé Especial
-    \nX - Encerrar pedido
+    \nX - Encerrar pedido"
     
-    
-    ");
+    );
 
     scanf("%c", &item);
 
-    switch (item) {
-        case 'a':
-        case 'A':  
-            itemZeFrita();
-            break;
-
-        case 'b':
-        case 'B':
-            itemZeRustico();
-            break;
-
-        case 'c':
-        case 'C':
-            itemZeDoce();
-            break;
-
-        case 'd':
-        case 'D':
-            itemZeChips();
-            break;
-
-        case 'e':  
-        case 'E':  
-            itemZeEspecial();
-            break;
-
-        // case 'x':   case 'X':   printf("Operacao cancelada!");
-
-        default:
-            printf("Item nao listado no cardapio (Os itens sao listados a partir de sua numeracao)!");
-            break;
-    }
-}#include <stdio.h>
-
-void menu();
-void itemZeFrita();
-void itemZeRustico();
-void itemZeDoce();
-void itemZeChips();
-void itemZeEspecial();
-
-int main() {
-    menu();
+    menu(item);
     
     return 0;
 }
 
-void menu() {
-    char item;
-    printf("menu: \n\n
-    
-    \nA - Zé Frita
-    \nB - Zé Rústico
-    \nC - Zé Frita Doce
-    \nD - Zé Chips
-    \nE - Zé Especial
-    \nX - Encerrar pedido
-    
-    
-    ");
-
-    scanf("%c", &item);
+void menu(char item) {
 
     switch (item) {
         case 'a':
         case 'A':  
-            itemZeFrita();
+            printf("\n\n
+            
+            Item selecionado: Zé Frita
+
+            \n
+
+            Descrição: ****
+
+            \n
+
+            Preço: R$**,**
+            
+            ");
             break;
 
         case 'b':
         case 'B':
-            itemZeRustico();
+            printf("\n\n
+            
+            Item selecionado: Zé Rústico
+
+            \n
+
+            Descrição: ****
+
+            \n
+
+            Preço: R$**,**
+            
+            ");
             break;
 
         case 'c':
         case 'C':
-            itemZeDoce();
+            printf("\n\n
+            
+            Item selecionado: Zé Frita Doce
+
+            \n
+
+            Descrição: ****
+
+            \n
+
+            Preço: R$**,**
+            
+            ");
             break;
 
         case 'd':
         case 'D':
-            itemZeChips();
+            printf("\n\n
+            
+            Item selecionado: Zé Chips
+
+            \n
+
+            Descrição: ****
+
+            \n
+
+            Preço: R$**,**
+            
+            ");
             break;
 
         case 'e':  
         case 'E':  
-            itemZeEspecial();
+            printf("\n\n
+            
+            Item selecionado: Zé Especial
+
+            \n
+
+            Descrição: ****
+
+            \n
+
+            Preço: R$**,**
+            
+            ");
             break;
 
         // case 'x':   case 'X':   printf("Operacao cancelada!");
