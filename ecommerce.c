@@ -16,7 +16,7 @@ void itemZeFrita() {
     printf("\n\n");
     printf("Item selecionado: Ze Frita \n");
     printf("Descricao: **** \n");
-    printf("Preco: R$**,**");
+    printf("Preco: R$**,**\n");
 
     menu();
 }
@@ -25,7 +25,7 @@ void itemZeRustico() {
     printf("\n\n");
     printf("Item selecionado: Ze Rustico \n");
     printf("Descricao: **** \n");
-    printf("Preco: R$**,**");
+    printf("Preco: R$**,**\n");
 
     menu();
 }
@@ -34,7 +34,7 @@ void itemZeDoce() {
     printf("\n\n");
     printf("Item selecionado: Ze Frita Doce \n");
     printf("Descricao: **** \n");
-    printf("Preco: R$**,**");
+    printf("Preco: R$**,**\n");
 
     menu();
 }
@@ -43,8 +43,8 @@ void itemZeChips() {
     printf("\n\n");
     printf("Item selecionado: Ze Chips \n");
     printf("Descricao: **** \n");
-    printf("Preco: R$**,**");
-    
+    printf("Preco: R$**,**\n");
+
     menu();
 }
 
@@ -52,16 +52,19 @@ void itemZeEspecial() {
     printf("\n\n");
     printf("Item selecionado: Ze Especial \n");
     printf("Descricao: **** \n");
-    printf("Preco: R$**,**");
+    printf("Preco: R$**,**\n");
 
     menu();
 }
 
 void menu() {
+    fflush(stdin);
 
-    int item;
+    char item;
 
-    printf("menu: \n\n");
+    printf("\n---------------------------------------------------------------------------------\n");
+
+    printf("\nMENU: \n\n");
     
     printf("\n1 - Ze Frita");
     printf("\n2 - Ze Rustico");
@@ -70,39 +73,40 @@ void menu() {
     printf("\n5 - Ze Especial");
     printf("\nX - Encerrar pedido");
 
-    printf("\n\n");
+    printf("\n\nDigite seu pedido (Ou aperte 'x' para cancelar) : ");
 
-    scanf("%d", &item);
+    scanf("%c", &item);
+
+    printf("\n---------------------------------------------------------------------------------\n");
 
     switch (item) {
-        case 1:
+        case '1' :
             itemZeFrita();
             break;
 
-        case 2:
+        case '2' :
             itemZeRustico();
             break;
 
-        case 3:
+        case '3' :
             itemZeDoce();
             break;
 
-        case 4:
+        case '4' :
             itemZeChips();
             break;
 
-        case 5:
+        case '5' :
             itemZeEspecial();
             break;
 
-        case 0:
-            printf("Operacao cancelada!");
+        case 'x':
+        case 'X':
+            printf("\nOperacao cancelada!\n");
             break;
 
         default:
-            printf("Item nao listado no cardapio (Os itens sao listados a partir de sua numeracao)!");
+            printf("\nItem nao listado no cardapio (Os itens sao listados a partir de sua numeracao)!");
             break;
     }
-
-    fflush(stdin);
 }
