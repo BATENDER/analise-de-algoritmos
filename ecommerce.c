@@ -1,14 +1,19 @@
 #include <stdio.h>
+#include <string.h>
 
-void menu();
+int contador = 0;
+char item[101];
+
+void menu(int contador, char* item);
 void itemZeFrita();
 void itemZeRustico();
 void itemZeDoce();
 void itemZeChips();
 void itemZeEspecial();
+void concluirPedido(int contador, char* item);
 
 int main() {
-    menu();
+    menu(contador, item);
     return 0;
 }
 
@@ -18,7 +23,8 @@ void itemZeFrita() {
     printf("Descricao: **** \n");
     printf("Preco: R$**,**\n");
 
-    menu();
+    item[contador] = '1';
+    contador += 1;
 }
 
 void itemZeRustico() {
@@ -27,7 +33,8 @@ void itemZeRustico() {
     printf("Descricao: **** \n");
     printf("Preco: R$**,**\n");
 
-    menu();
+    item[contador] = '2';
+    contador += 1;
 }
 
 void itemZeDoce() {
@@ -36,7 +43,8 @@ void itemZeDoce() {
     printf("Descricao: **** \n");
     printf("Preco: R$**,**\n");
 
-    menu();
+    item[contador] = '3';
+    contador += 1;
 }
 
 void itemZeChips() {
@@ -45,7 +53,8 @@ void itemZeChips() {
     printf("Descricao: **** \n");
     printf("Preco: R$**,**\n");
 
-    menu();
+    item[contador] = '4';
+    contador += 1;
 }
 
 void itemZeEspecial() {
@@ -54,13 +63,52 @@ void itemZeEspecial() {
     printf("Descricao: **** \n");
     printf("Preco: R$**,**\n");
 
-    menu();
+    item[contador] = '5';
+    contador += 1;
+    
+    // for (int j = 0; j <= i; j++)
+    //     printf("\n\n%c\n\n", item[j]);
+
 }
 
-void menu() {
+void concluirPedido(int contador, char* item) {
+    printf("\n\n\n");
+
+    for (int i = 0; i <= contador; contador++) {
+        switch (item[contador]) {
+            case '1' :
+                printf("Ze Frita \n");
+                break;
+
+            case '2' :
+                printf("Ze Rustico \n");
+                break;
+
+            case '3' :
+                printf("Ze Frita Doce \n");
+                break;
+
+            case '4' :
+                printf("Ze Chips \n");
+                break;
+
+            case '5' :
+                printf("Ze Especial \n");
+                break;
+
+            default :
+                printf("Erro");
+        }
+    }
+
+    printf("\n\n\n");
+}
+
+void menu(int contador, char* item) {
     fflush(stdin);
 
-    char item;
+    // for (int j = 0; j <= i; j++)
+    // printf("\n\n%c\n\n", item[j]);
 
     printf("\n---------------------------------------------------------------------------------\n");
 
@@ -74,39 +122,48 @@ void menu() {
     printf("\nX - Encerrar pedido");
 
     printf("\n\nDigite seu pedido (Ou aperte 'x' para cancelar) : ");
-
-    scanf("%c", &item);
+    char op;
+    scanf("%s", &op);
+    item[contador] = op;
+    // printf("\n\n%c", op);
 
     printf("\n---------------------------------------------------------------------------------\n");
 
-    switch (item) {
+    switch (item[contador]) {
         case '1' :
             itemZeFrita();
+            menu(contador, item);
             break;
 
         case '2' :
             itemZeRustico();
+            menu(contador, item);
             break;
 
         case '3' :
-            itemZeDoce();
+            itemZeDoce();  
+            menu(contador, item);
             break;
 
         case '4' :
             itemZeChips();
+            menu(contador, item);
             break;
 
         case '5' :
             itemZeEspecial();
+            menu(contador, item);
             break;
 
         case 'x':
         case 'X':
             printf("\nOperacao cancelada!\n");
+            concluirPedido(contador, item);
             break;
 
         default:
             printf("\nItem nao listado no cardapio (Os itens sao listados a partir de sua numeracao)!");
+            menu(contador, item);
             break;
     }
 }
